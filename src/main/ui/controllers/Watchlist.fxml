@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.WatchlistController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <VBox prefHeight="645.0" prefWidth="210.0" style="-fx-background-color: #e5e5e5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="138.0" prefWidth="210.0">
+               <children>
+                  <ImageView fitHeight="69.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets right="20.0" top="15.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../icons/finance-icon-png-7.png" />
+                     </image>
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="STOCK MARKET TRACKER" textAlignment="CENTER" wrappingWidth="150.0">
+                     <font>
+                        <Font name="San Francisco Text Italic" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <Pane prefHeight="30.0" prefWidth="210.0" />
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToStockInfo" prefHeight="44.0" prefWidth="238.0" stylesheets="@../utils/fullpackstyling.css" text="Stock Information" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <font>
+                  <Font name="San Francisco Text Regular" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8_stocks_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToPortfolio" prefHeight="44.0" prefWidth="249.0" stylesheets="@../utils/fullpackstyling.css" text="Portfolio" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <font>
+                  <Font name="San Francisco Text Regular" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8_investment_portfolio_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="54.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="249.0" stylesheets="@../utils/fullpackstyling.css" text="Watchlists">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <font>
+                  <Font name="San Francisco Text Regular" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8_list_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="210.0" layoutY="76.0" prefHeight="569.0" prefWidth="698.0">
+         <children>
+            <GridPane prefHeight="552.0" prefWidth="698.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="170.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="517.0" minHeight="10.0" prefHeight="454.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView fx:id="watchlistView" prefHeight="402.0" prefWidth="688.0" stylesheets="@../utils/fullpackstyling.css" GridPane.rowIndex="2">
+                     <columns>
+                        <TableColumn fx:id="stockTickerColumn" prefWidth="107.0" text="Stock Ticker" />
+                        <TableColumn fx:id="currentPriceColumn" prefWidth="121.0" text="Current Price" />
+                        <TableColumn fx:id="prevClosePriceColumn" prefWidth="141.0" text="Previous Close Price" />
+                        <TableColumn fx:id="netChangeColumn" prefWidth="101.0" text="Change" />
+                        <TableColumn fx:id="percentChangeColumn" prefWidth="119.0" text="\% Change" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </TableView>
+                  <HBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="698.0">
+                     <children>
+                        <ChoiceBox fx:id="watchlistChoiceBox" prefHeight="25.0" prefWidth="332.0" stylesheets="@../utils/fullpackstyling.css">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></ChoiceBox>
+                        <Pane prefHeight="37.0" prefWidth="77.0" />
+                        <Button mnemonicParsing="false" onAction="#displayWatchlist" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #6791E7;" stylesheets="@../utils/fullpackstyling.css" text="Display Watchlist" />
+                        <Pane layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="11.0" />
+                        <Pane layoutX="472.0" layoutY="10.0" prefHeight="51.0" prefWidth="12.0" />
+                        <Button layoutX="390.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteWatchlist" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: #E34A40;" stylesheets="@../utils/fullpackstyling.css" text="Delete Watchlist">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="698.0" GridPane.rowIndex="1">
+                     <children>
+                        <TextField fx:id="nameField" prefHeight="25.0" prefWidth="340.0" promptText="Enter Name For Watchlist">
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Pane prefHeight="44.0" prefWidth="45.0" />
+                        <Button mnemonicParsing="false" onAction="#createWatchlist" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: #A5A7E6;" stylesheets="@../utils/fullpackstyling.css" text="Create New Watchlist">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeStock" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #E6A835;" stylesheets="@../utils/fullpackstyling.css" text="Remove Stock">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <Pane layoutX="210.0" prefHeight="76.0" prefWidth="697.0" style="-fx-background-color: #6742D9;" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="20.0" layoutY="26.0" prefHeight="36.0" prefWidth="275.0" text="Watchlists" textFill="WHITE">
+               <font>
+                  <Font name="San Francisco Text Regular" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
